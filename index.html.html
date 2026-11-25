@@ -1,0 +1,467 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Çocuk Dostu Esnaf</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: sola yaslı hero (metin + rozet), lacivert bantlı işleyiş bölümü, çocuklar için büyük yazılı rehber, şematik örnek harita.
+   Fikir: tente şeridi sayfanın en üstünde, logodaki dükkân tentesini taşır. */
+:root{
+  --bg:#FBF6EA;
+  --surface:#FFFFFF;
+  --surface-2:#F3EBD8;
+  --fg:#1B2F5B;
+  --muted:#4A5B80;
+  --line:#E3D8BE;
+  --navy:#1B2F5B;
+  --on-navy:#FBF6EA;
+  --gold:#C9A66B;
+  --gold-ink:#7A5C24;
+  --focus:#1B2F5B;
+  --font-display:'Poppins','Segoe UI',Arial,sans-serif;
+  --font-body:'Nunito Sans','Segoe UI',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101C38; --surface:#17274A; --surface-2:#1B2F5B; --fg:#FBF6EA; --muted:#B9C2D8;
+    --line:#2B3E6B; --gold-ink:#D9BC85; --focus:#C9A66B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101C38; --surface:#17274A; --surface-2:#1B2F5B; --fg:#FBF6EA; --muted:#B9C2D8;
+  --line:#2B3E6B; --gold-ink:#D9BC85; --focus:#C9A66B; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.6}
+h1,h2,h3{font-family:var(--font-display);line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,5.4vw,3.4rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3.8vw,2.3rem);font-weight:700}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1100px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--font-display);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink)}
+.lede{font-size:1.15rem;color:var(--muted);max-width:56ch}
+
+/* tente */
+.awning-stripe{height:22px;background:repeating-linear-gradient(90deg,var(--navy) 0 48px,var(--gold) 48px 96px)}
+.awning-scallop{height:24px;background-image:radial-gradient(circle at 24px 0,var(--navy) 23.5px,transparent 24px),radial-gradient(circle at 72px 0,var(--gold) 23.5px,transparent 24px);background-size:96px 24px;background-repeat:repeat-x}
+
+/* üst çubuk */
+.topbar{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between;padding-block:18px}
+.brand{font-family:var(--font-display);font-weight:800;text-decoration:none;font-size:1.05rem}
+.brand{display:inline-flex;align-items:center;gap:10px}
+.brand-logo{width:44px;height:44px;flex:none}
+.brand span span{color:var(--gold-ink)}
+.topbar nav{display:flex;flex-wrap:wrap;gap:4px 20px;font-size:.95rem;font-weight:600}
+.topbar nav a{text-decoration:none;color:var(--muted)}
+.topbar nav a:hover{color:var(--fg);text-decoration:underline;text-underline-offset:4px}
+
+/* hero */
+.hero{padding-block:24px 64px}
+.hero .wrap{display:flex;flex-wrap:wrap;gap:40px 56px;align-items:center}
+.hero-text{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.hero-logo{flex:0 1 380px;min-width:0;margin-inline:auto}
+.hero-logo svg{width:100%;height:auto;display:block}
+.badge{align-self:flex-start;font-size:.8rem;font-weight:700;padding:4px 12px;border:1.5px solid var(--gold);border-radius:999px;color:var(--gold-ink)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn{display:inline-block;font-family:var(--font-display);font-weight:600;font-size:.98rem;padding:13px 22px;border-radius:10px;text-decoration:none;border:2px solid var(--navy);background:var(--navy);color:var(--on-navy)}
+.btn:hover{background:var(--surface-2);color:var(--fg)}
+.btn.alt{background:transparent;color:var(--fg);border-color:var(--gold)}
+.btn.alt:hover{background:var(--surface-2)}
+:root[data-theme="dark"] .btn,
+:root:not([data-theme="light"]) .btn{border-color:var(--gold)}
+
+section{padding-block:72px}
+.sec-head{display:flex;flex-direction:column;gap:12px;margin-bottom:36px;max-width:62ch}
+
+/* neden */
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
+.why article{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.why p{color:var(--muted)}
+
+/* işleyiş */
+.band{background:var(--navy);color:var(--on-navy)}
+.band .eyebrow{color:var(--gold)}
+.band .lede,.band p{color:#D6DCEB}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:20px;counter-reset:s}
+.steps li{counter-increment:s;border-top:3px solid var(--gold);padding-top:16px;display:flex;flex-direction:column;gap:8px}
+.steps li::before{content:counter(s);font-family:var(--font-display);font-weight:800;font-size:2.2rem;color:var(--gold);line-height:1}
+.steps h3{color:var(--on-navy)}
+
+/* esnaf rehberi */
+.guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}
+.guide section{padding:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.card li{display:flex;gap:12px;align-items:flex-start}
+.card li::before{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:800;margin-top:2px}
+.do li::before{content:"✓";background:var(--navy);color:var(--on-navy)}
+.dont li::before{content:"✕";background:var(--gold);color:#1B2F5B}
+.note{margin-top:20px;font-size:.92rem;color:var(--muted);border-left:4px solid var(--gold);padding-left:14px;max-width:70ch}
+
+/* çocuklar */
+.kids{background:var(--surface-2)}
+.kid-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
+.kid-step{background:var(--surface);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px;border:2px solid var(--navy)}
+.kid-step .big{font-family:var(--font-display);font-weight:800;font-size:1.5rem;line-height:1.2}
+.kid-step p{font-size:1.1rem}
+.help{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;font-size:1.05rem}
+.help b{font-family:var(--font-display);font-size:1.6rem;color:var(--gold-ink);margin-right:6px}
+
+/* harita */
+.map-grid{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.map-box{flex:2 1 380px;min-width:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface-2)}
+.map-box svg{display:block;width:100%;height:auto}
+.map-side{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.shoplist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.shoplist button{width:100%;text-align:left;font:inherit;font-weight:700;color:var(--fg);background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;gap:10px}
+.shoplist button small{font-weight:600;color:var(--muted)}
+.shoplist button[aria-pressed="true"]{border-color:var(--navy);background:var(--surface-2);box-shadow:inset 4px 0 0 var(--gold)}
+.detail{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.detail dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.95rem}
+.detail dt{color:var(--muted)}
+.detail dd{margin:0;font-weight:700}
+.sample-tag{font-size:.8rem;font-weight:700;color:var(--gold-ink)}
+.m-street{fill:var(--surface)}
+.m-label{font:600 11px var(--font-body);fill:var(--muted)}
+.m-park{fill:color-mix(in srgb,var(--gold) 28%,transparent)}
+.m-school{fill:var(--navy)}
+.m-ring{fill:none;stroke:var(--gold-ink);stroke-width:2;stroke-dasharray:6 6}
+.pin{cursor:pointer;transition:transform .15s}
+.pin circle.dot{fill:var(--navy);stroke:var(--gold);stroke-width:3}
+.pin path{fill:var(--gold)}
+.pin.active circle.dot{stroke:var(--gold-ink);stroke-width:4}
+.pin:focus-visible{outline:none}
+.pin:focus-visible circle.dot{stroke:var(--focus);stroke-width:5}
+
+/* sss */
+.faq{display:flex;flex-direction:column;gap:10px;max-width:760px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0}
+summary{cursor:pointer;font-family:var(--font-display);font-weight:600;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--gold-ink)}
+details[open] summary::after{content:"–"}
+details p{padding:0 20px 18px;color:var(--muted)}
+
+/* katılım */
+.join{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+.contact{margin-top:20px;display:flex;flex-direction:column;gap:6px;font-weight:700}
+.contact span{font-weight:400;color:#D6DCEB}
+.placeholder{display:inline-block;border:1.5px dashed var(--gold);border-radius:6px;padding:2px 10px;color:var(--gold);user-select:all}
+
+footer{padding-block:32px;font-size:.9rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="logo-art" viewBox="0 0 1000 1000">
+  
+  <defs>
+    <clipPath id="inner"><circle cx="500" cy="500" r="455"/></clipPath>
+  </defs>
+  <circle cx="500" cy="500" r="490" fill="#1B2F5B"/>
+  <circle cx="500" cy="500" r="455" fill="#FBF6EA"/>
+  <circle cx="500" cy="500" r="438" fill="none" stroke="#C9A66B" stroke-width="6"/>
+  <g clip-path="url(#inner)">
+    <polygon points="300,130 350,130 260,300 180,300" fill="#1B2F5B"/>
+    <polygon points="350,130 400,130 340,300 260,300" fill="#C9A66B"/>
+    <polygon points="400,130 450,130 420,300 340,300" fill="#1B2F5B"/>
+    <polygon points="450,130 500,130 500,300 420,300" fill="#C9A66B"/>
+    <polygon points="500,130 550,130 580,300 500,300" fill="#1B2F5B"/>
+    <polygon points="550,130 600,130 660,300 580,300" fill="#C9A66B"/>
+    <polygon points="600,130 650,130 740,300 660,300" fill="#1B2F5B"/>
+    <polygon points="650,130 700,130 820,300 740,300" fill="#C9A66B"/>
+    <circle cx="220" cy="300" r="40" fill="#1B2F5B"/>
+    <circle cx="300" cy="300" r="40" fill="#C9A66B"/>
+    <circle cx="380" cy="300" r="40" fill="#1B2F5B"/>
+    <circle cx="460" cy="300" r="40" fill="#C9A66B"/>
+    <circle cx="540" cy="300" r="40" fill="#1B2F5B"/>
+    <circle cx="620" cy="300" r="40" fill="#C9A66B"/>
+    <circle cx="700" cy="300" r="40" fill="#1B2F5B"/>
+    <circle cx="780" cy="300" r="40" fill="#C9A66B"/>
+    <line x1="215" y1="330" x2="215" y2="570" stroke="#1B2F5B" stroke-width="8" stroke-linecap="round"/>
+    <line x1="785" y1="330" x2="785" y2="570" stroke="#1B2F5B" stroke-width="8" stroke-linecap="round"/>
+    <line x1="160" y1="572" x2="840" y2="572" stroke="#1B2F5B" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="410" cy="600" rx="88" ry="62" fill="#1B2F5B"/>
+    <ellipse cx="590" cy="600" rx="88" ry="62" fill="#1B2F5B"/>
+    <path d="M348,425 Q295,440 300,515 Q335,495 352,470 Z" fill="#1B2F5B"/>
+    <circle cx="410" cy="450" r="70" fill="#FBF6EA" stroke="#1B2F5B" stroke-width="8"/>
+    <path d="M338,452 A72 72 0 0 1 482,452 Q470 405 410 398 Q352 405 338 452 Z" fill="#1B2F5B"/>
+    <circle cx="385" cy="458" r="7" fill="#1B2F5B"/>
+    <circle cx="435" cy="458" r="7" fill="#1B2F5B"/>
+    <path d="M388,484 Q410 502 432 484" fill="none" stroke="#1B2F5B" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="590" cy="450" r="70" fill="#FBF6EA" stroke="#1B2F5B" stroke-width="8"/>
+    <path d="M518,452 Q515 380 585 372 Q600 360 625 372 Q665 385 662 452 Q645 412 590 406 Q540 410 518 452 Z" fill="#1B2F5B"/>
+    <path d="M640,372 Q668 360 676 378 Q655 380 640 372 Z" fill="#1B2F5B"/>
+    <circle cx="565" cy="458" r="7" fill="#1B2F5B"/>
+    <circle cx="615" cy="458" r="7" fill="#1B2F5B"/>
+    <path d="M568,484 Q590 502 612,484" fill="none" stroke="#1B2F5B" stroke-width="7" stroke-linecap="round"/>
+    <rect x="0" y="615" width="1000" height="145" fill="#1B2F5B"/>
+    <text x="500" y="712" text-anchor="middle" font-family="Poppins,'Segoe UI',Arial,sans-serif" font-weight="800" font-size="72" fill="#FBF6EA">Çocuk Dostu <tspan fill="#C9A66B">Esnaf</tspan></text>
+    <text x="500" y="842" text-anchor="middle" font-family="Poppins,'Segoe UI',Arial,sans-serif" font-weight="700" font-size="50" fill="#1B2F5B">Gönüllü Güvenli Nokta</text>
+  </g>
+</symbol></svg>
+<div class="awning-stripe" aria-hidden="true"></div>
+<div class="awning-scallop" aria-hidden="true"></div>
+
+<header class="wrap topbar">
+  <a class="brand" href="#basi"><svg class="brand-logo" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#logo-art"/></svg><span class="brand-name">Çocuk Dostu <span>Esnaf</span></span></a>
+  <nav aria-label="Sayfa bölümleri">
+    <a href="#neden">Neden</a>
+    <a href="#isleyis">İşleyiş</a>
+    <a href="#esnaf">Esnaf için</a>
+    <a href="#cocuklar">Çocuklar için</a>
+    <a href="#harita">Harita</a>
+    <a href="#sss">Sorular</a>
+  </nav>
+</header>
+
+<main id="basi">
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="badge">Mahalle dayanışma projesi</span>
+      <h1>Mahallenin esnafı, çocukların güvenli noktası.</h1>
+      <p class="lede">Çocuk Dostu Esnaf, gönüllü esnafın dükkânını tehlike anında çocuklara açtığı bir mahalle ağıdır. Vitrinde bu işareti gören çocuk, içeri girip yardım isteyebileceğini bilir.</p>
+      <div class="actions">
+        <a class="btn" href="#isleyis">Proje nasıl işliyor?</a>
+        <a class="btn alt" href="#harita">Güvenli noktaları gör</a>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <svg viewBox="0 0 1000 1000" role="img" aria-label="Çocuk Dostu Esnaf rozeti: tentenin altında gülümseyen iki çocuk"><use href="#logo-art"/></svg>
+    </div>
+  </div>
+</div>
+
+<section id="neden">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Proje neden var</span>
+      <h2>Sokakta korkan bir çocuk, ilk olarak bir dükkâna sığınabilir.</h2>
+      <p class="lede">Dükkânlar gün boyu açık, görünür ve içinde yetişkin olan yerlerdir. Proje bu doğal güveni ortak bir işaretle görünür hâle getirir.</p>
+    </div>
+    <div class="why">
+      <article><h3>Tanıdık yüz</h3><p>Esnaf mahallenin tanıdığı insandır. Çocuk için yabancıya yaklaşmaktan daha kolaydır.</p></article>
+      <article><h3>Görünür yer</h3><p>Dükkânın kapısı sokağa açıktır, içeride insanlar vardır. Çocuk tek başına kalmaz.</p></article>
+      <article><h3>Tek bir işaret</h3><p>Çocukların akılda tutacağı tek bir rozet var: tentenin altında gülümseyen iki çocuk.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="isleyis" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">İşleyiş</span>
+      <h2>Proje dört adımda hayata geçiyor.</h2>
+      <p class="lede">Önce esnafla, sonra öğrencilerle görüşülür. Ardından işaret asılır ve ağ çalışmaya başlar.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Esnafla görüşme</h3><p>Gönüllü esnafla yüz yüze konuşulur. Projenin amacı, yapılacaklar ve yapılmayacaklar anlatılır. Katılım gönüllüdür.</p></li>
+      <li><h3>Öğrencilerle görüşme</h3><p>Çocuklara işaretin ne anlama geldiği ve korktuklarında ne yapacakları, sade bir dille anlatılır.</p></li>
+      <li><h3>İşaret ve karekod</h3><p>Onaylanan dükkânın vitrinine rozet asılır. Karekod, dükkânın projeye gerçekten katıldığını gösteren sayfayı açar.</p></li>
+      <li><h3>Tehlike anında</h3><p>Çocuk işaretli dükkâna girer. Esnaf onu içeride güvenle bekletir ve 112'yi arar.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="esnaf">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Esnaf için rehber</span>
+      <h2>Dükkânınıza korkmuş bir çocuk girdiğinde.</h2>
+      <p class="lede">Esnafın görevi müdahale etmek değil, çocuğu güvende tutmak ve yetkilileri çağırmaktır.</p>
+    </div>
+    <div class="guide">
+      <section class="card do" aria-labelledby="yapin">
+        <h3 id="yapin">Yapın</h3>
+        <ul>
+          <li>Sakin ve yumuşak bir sesle konuşun. Çocuğa güvende olduğunu söyleyin.</li>
+          <li>Çocuğu dükkânın görünür bir yerinde oturtun. Su ya da sandalye verin.</li>
+          <li>Hemen 112'yi arayın ve durumu anlatın.</li>
+          <li>Yetkililer gelene kadar çocuğu yalnız bırakmayın. Yanında bir yetişkin bulunsun.</li>
+          <li>Çocuğun anlattıklarını yargılamadan dinleyin. Saati ve duyduklarınızı kısaca not edin.</li>
+        </ul>
+      </section>
+      <section class="card dont" aria-labelledby="yapmayin">
+        <h3 id="yapmayin">Yapmayın</h3>
+        <ul>
+          <li>Çocuğu dükkânın kapalı ya da arka bir bölümüne almayın.</li>
+          <li>Çocuğa art arda soru sormayın. Anlatmaya zorlamayın.</li>
+          <li>Çocuğun fotoğrafını çekmeyin, paylaşmayın.</li>
+          <li>Çocuğu yetkili olmayan biriyle göndermeyin. Kendi aracınızla eve bırakmayın.</li>
+          <li>Çocuğu korkutan kişiyle kendiniz yüzleşmeyin.</li>
+        </ul>
+      </section>
+    </div>
+    <p class="note">Bu rehber taslaktır. Yayına girmeden önce projeye destek veren okul, emniyet ve belediye yetkilileriyle birlikte netleştirilmelidir.</p>
+  </div>
+</section>
+
+<section id="cocuklar" class="kids">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Çocuklar için</span>
+      <h2>Korktuğunda ne yapacaksın?</h2>
+      <p class="lede">Biri seni rahatsız ediyorsa, takip ediyorsa ya da kendini güvende hissetmiyorsan:</p>
+    </div>
+    <div class="kid-steps">
+      <div class="kid-step"><span class="big">1. İşareti ara</span><p>Vitrinde tentenin altında iki çocuk olan rozeti olan bir dükkân bul.</p></div>
+      <div class="kid-step"><span class="big">2. İçeri gir</span><p>Esnafa "Yardım istiyorum" de. Nedenini hemen anlatmak zorunda değilsin.</p></div>
+      <div class="kid-step"><span class="big">3. İçeride bekle</span><p>Esnaf seni yalnız bırakmaz. Yardım gelene kadar yanında olur.</p></div>
+    </div>
+    <div class="help">
+      <span>Rozetli dükkân yoksa kalabalık ve aydınlık bir yere git.</span>
+      <span><b>112</b>Acil yardım</span>
+      <span><b>183</b>Sosyal destek hattı</span>
+    </div>
+  </div>
+</section>
+
+<section id="harita">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Güvenli noktalar haritası</span>
+      <h2>Rozetli dükkânlar tek haritada.</h2>
+      <p class="lede">Karekod bu sayfaya götürür. Bir dükkân listede ve haritada yoksa üzerindeki rozet geçerli değildir. Aşağıdaki harita örnek verilerle hazırlanmış bir taslaktır.</p>
+    </div>
+    <div class="map-grid">
+      <div class="map-box">
+        <svg viewBox="0 0 640 420" role="img" aria-label="Örnek mahalle haritası: okul ve beş örnek güvenli nokta">
+          <rect width="640" height="420" fill="none"/>
+          <rect class="m-park" x="40" y="320" width="150" height="80" rx="14"/>
+          <text class="m-label" x="115" y="365" text-anchor="middle">Park</text>
+          <rect class="m-street" x="0" y="98" width="640" height="24"/>
+          <rect class="m-street" x="0" y="288" width="640" height="24"/>
+          <rect class="m-street" x="128" y="0" width="24" height="420"/>
+          <rect class="m-street" x="308" y="0" width="24" height="420"/>
+          <rect class="m-street" x="488" y="0" width="24" height="420"/>
+          <text class="m-label" x="600" y="114" text-anchor="end">Ana Cadde</text>
+          <text class="m-label" x="600" y="304" text-anchor="end">Gül Sokak</text>
+          <text class="m-label" transform="translate(145,408) rotate(-90)">Çınar Sokak</text>
+          <text class="m-label" transform="translate(325,408) rotate(-90)">Okul Caddesi</text>
+          <text class="m-label" transform="translate(505,408) rotate(-90)">Lale Sokak</text>
+          <circle class="m-ring" cx="385" cy="190" r="140"/>
+          <rect class="m-school" x="345" y="168" width="80" height="44" rx="6"/>
+          <text x="385" y="195" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-weight="600" font-size="13" fill="#FBF6EA">Okul</text>
+          <text class="m-label" x="385" y="344" text-anchor="middle" style="display:none">.</text>
+          <text class="m-label" x="385" y="50" text-anchor="middle">Kesikli halka: okuldan yaklaşık 3 dk yürüme</text>
+          <g id="pins"></g>
+        </svg>
+      </div>
+      <div class="map-side">
+        <span class="sample-tag">ÖRNEK VERİ: gerçek dükkânlar onaylandıkça burada yayınlanacak</span>
+        <ul class="shoplist" id="shoplist"></ul>
+        <div class="detail" aria-live="polite">
+          <h3 id="d-name"></h3>
+          <dl>
+            <dt>Adres</dt><dd id="d-addr"></dd>
+            <dt>Çalışma saati</dt><dd id="d-hours"></dd>
+            <dt>Okula uzaklık</dt><dd id="d-dist"></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sss" style="background:var(--surface-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Sık sorulan sorular</span>
+      <h2>Aklınıza takılanlar.</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Esnaf projeye nasıl katılır?</summary><p>Proje ekibi dükkânı ziyaret eder, rehberi birlikte okur. Esnaf kabul ederse rozet teslim edilir ve dükkân haritaya eklenir.</p></details>
+      <details><summary>Katılım zorunlu mu?</summary><p>Hayır. Proje tamamen gönüllülüğe dayanır. Esnaf istediği zaman projeden ayrılabilir. Rozet geri alınır ve harita güncellenir.</p></details>
+      <details><summary>Rozet sahte olabilir mi?</summary><p>Bu yüzden her rozette karekod var. Karekod dükkânın projeye katıldığını gösteren sayfayı açar. Dükkân listede yoksa rozet geçerli değildir.</p></details>
+      <details><summary>Esnaf polisin yerine mi geçiyor?</summary><p>Hayır. Esnafın görevi çocuğu içeride güvenle bekletmek ve 112'yi aramaktır. Müdahale yetkililere aittir.</p></details>
+      <details><summary>Çocuklardan bilgi toplanıyor mu?</summary><p>Proje ilkesi olarak çocuklardan ad, fotoğraf ya da konum bilgisi toplanmaz. Haritada yalnızca dükkânların bilgisi yer alır.</p></details>
+      <details><summary>Dükkân kapalıysa ne olur?</summary><p>Haritada her dükkânın çalışma saati yazar. Çocuklara kapalı bir dükkâna değil, açık ve rozetli bir dükkâna gitmeleri öğretilir.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="katilim" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Katılın</span>
+      <h2>Mahallenizde bir güvenli nokta olun.</h2>
+      <p class="lede">Esnaf, okul ya da kurum olarak projeye katılmak veya destek vermek için bizimle iletişime geçin.</p>
+    </div>
+    <div class="join">
+      <div>
+        <h3>Esnafsanız</h3>
+        <p>Dükkânınızda bir güvenli nokta olmak istiyorsanız ekibimiz sizi ziyaret eder, rehberi birlikte okur ve rozetinizi teslim eder.</p>
+      </div>
+      <div>
+        <h3>Okul ya da kurumsanız</h3>
+        <p>Öğrencilerle görüşme yapmak, projeye destek vermek veya kendi mahallenizde başlatmak için bize yazın.</p>
+      </div>
+    </div>
+    <div class="contact">
+      <div>E-posta <span class="placeholder">e-posta adresi eklenecek</span></div>
+      <div>Telefon <span class="placeholder">telefon eklenecek</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Çocuk Dostu Esnaf · Gönüllü Güvenli Nokta</span>
+    <span>Taslak sürüm. İçerikler proje ortaklarıyla netleştirilecektir.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var shops=[
+    {name:"Örnek Bakkal",addr:"Ana Cadde",hours:"08:00 – 22:00",dist:"yaklaşık 2 dk",x:230,y:110},
+    {name:"Örnek Kırtasiye",addr:"Okul Caddesi",hours:"08:30 – 19:00",dist:"yaklaşık 1 dk",x:320,y:255},
+    {name:"Örnek Eczane",addr:"Çınar Sokak",hours:"09:00 – 20:00",dist:"yaklaşık 4 dk",x:140,y:200},
+    {name:"Örnek Fırın",addr:"Ana Cadde",hours:"06:30 – 20:00",dist:"yaklaşık 2 dk",x:430,y:110},
+    {name:"Örnek Kuaför",addr:"Lale Sokak",hours:"09:00 – 19:00",dist:"yaklaşık 3 dk",x:500,y:240}
+  ];
+  var NS="http://www.w3.org/2000/svg";
+  var pinsG=document.getElementById("pins");
+  var list=document.getElementById("shoplist");
+  var pinEls=[],btnEls=[];
+  function el(tag,attrs){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);return e;}
+  function select(i){
+    shops.forEach(function(s,j){
+      var on=i===j;
+      pinEls[j].classList.toggle("active",on);
+      pinEls[j].setAttribute("transform","translate("+s.x+","+s.y+") scale("+(on?1.3:1)+")");
+      btnEls[j].setAttribute("aria-pressed",on?"true":"false");
+    });
+    var s=shops[i];
+    document.getElementById("d-name").textContent=s.name;
+    document.getElementById("d-addr").textContent=s.addr;
+    document.getElementById("d-hours").textContent=s.hours;
+    document.getElementById("d-dist").textContent=s.dist;
+    pinsG.appendChild(pinEls[i]);
+  }
+  shops.forEach(function(s,i){
+    var g=el("g",{"class":"pin",tabindex:"0",role:"button","aria-label":s.name,transform:"translate("+s.x+","+s.y+")"});
+    g.appendChild(el("circle",{"class":"dot",r:"15"}));
+    g.appendChild(el("path",{d:"M0,7 C-9,1 -10,-5 -5,-7 C-2,-8 0,-6 0,-4 C0,-6 2,-8 5,-7 C10,-5 9,1 0,7 Z"}));
+    g.addEventListener("click",function(){select(i)});
+    g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();select(i)}});
+    pinsG.appendChild(g);pinEls.push(g);
+    var li=document.createElement("li");
+    var b=document.createElement("button");
+    b.type="button";
+    b.innerHTML="<span></span><small></small>";
+    b.firstChild.textContent=s.name;
+    b.lastChild.textContent=s.hours.split(" – ")[0]+"–"+s.hours.split(" – ")[1];
+    b.addEventListener("click",function(){select(i)});
+    li.appendChild(b);list.appendChild(li);btnEls.push(b);
+  });
+  select(0);
+})();
+</script>
+
+</body></html>
